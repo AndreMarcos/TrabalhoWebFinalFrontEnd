@@ -1,0 +1,31 @@
+.tipovinho{
+    color: coral;
+    font-size: 12px;
+    font-family: arial;
+    border-radius: 50px;
+    border-color: coral;
+    width: 100px;
+    padding:15px;
+    box-shadow: 0px 1px 5px coral;
+    margin-left:15px;
+    margin-bottom: 15px;
+}
+
+.tipovinho-clicked{
+    color: white;
+    font-size: 12px;
+    font-family: arial;
+    border-radius: 50px;
+    border-color: coral;
+    width: 100px;
+    padding:15px;
+    box-shadow: 0px 1px 5px coral;
+    margin-left:15px;
+    margin-bottom: 15px;
+    background-color: coral;
+}
+
+
+.img{
+    width: 30%;
+}

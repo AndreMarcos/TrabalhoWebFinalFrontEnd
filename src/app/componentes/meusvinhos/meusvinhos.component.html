@@ -1,0 +1,25 @@
+<app-navbarlogado>
+</app-navbarlogado>
+<div class="wrapper">
+    <div class="section text-center">
+        <br><br>
+        <div class="container">
+            <button (click)="mostraCadsatro()" class="btn btn-primary btn-round" type="button">
+                <i _ngcontent-c3="" class="now-ui-icons ui-2_favourite-28"></i> Cadastrar Vinho 
+            </button>
+        </div>
+
+        <br><br><br>
+        <div class="container">
+            <div *ngFor="let vinho of Vinhos" class="card">
+                <img class="card-img-top img" src="assets/img/{{vinho.img}}">
+                <div class="card-body">
+                    <h5 class="card-title">{{vinho.nome}}</h5>
+                    <p class="card-text">{{vinho.vinicola}}</p>
+                    <p class="card-text">{{vinho.pais}}</p>
+                    <a class="btn btn-primary">Reviews</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

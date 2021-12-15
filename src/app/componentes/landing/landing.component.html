@@ -1,0 +1,123 @@
+<app-navbar>
+</app-navbar>
+<div class="wrapper">
+    <div class="section text-center">
+        <br><br>
+        <div class="container">
+            <h2 class="title">Com {{Vinhos.length}} vinhos cadastrados! </h2>
+            <br><br>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="container">
+                        <h4><b>Tipos de Vinhos</b></h4>
+                        <div class="row">
+                            <a href="javascript:void(0)" class="tipovinho" *ngFor="let vinho of TiposVinhos" id="{{vinho}}" (click)="changeFilterTipo(vinho)">{{vinho}}</a>
+                        </div>
+                        <div class="container">
+                            <h4><b>Faixa de preços</b></h4>
+                            <br><br>
+                            <div style="width: 80%;">
+                                <nouislider class="slider slider-primary ng2-nouislider ng-untouched ng-valid ng-dirty" >
+                                        <div class="noUi-target noUi-ltr noUi-horizontal">
+                                            <div class="noUi-base"><div class="noUi-origin" style="left: 16%;">
+                                                <div class="noUi-handle noUi-handle-lower" data-handle="0" style="z-index: 5;">
+                                                    <div class="noUi-tooltip">R$ 16</div>
+                                                </div>
+                                            </div>
+                                            <div class="noUi-connect" style="left: 16%; right: 40%;">
+                                            </div>
+                                            <div class="noUi-origin" style="left: 60%;">
+                                                <div class="noUi-handle noUi-handle-upper" data-handle="1" style="z-index: 4;">
+                                                    <div class="noUi-tooltip">R$ 60</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </nouislider>
+                            </div>
+                        </div>
+                        <br><br>
+                        <div class="container">
+                            <h4><b>Classificação média</b></h4>
+                            <br>
+                            <div style="text-align: left;">
+                                <div _ngcontent-c3="" class="form-check form-check-radio">
+                                    <label _ngcontent-c3="" class="form-check-label" style="color:coral;">
+                                        <input _ngcontent-c3="" class="form-check-input" id="exampleRadios1" name="exampleRadios" type="radio" value="option1">
+                                        <span _ngcontent-c3="" class="form-check-sign"></span><i class="now-ui-icons ui-2_favourite-28"></i>&nbsp;<i class="now-ui-icons ui-2_favourite-28"></i>&nbsp;<i class="now-ui-icons ui-2_favourite-28"></i>&nbsp;<i class="now-ui-icons ui-2_favourite-28"></i>&nbsp;<i class="now-ui-icons ui-2_favourite-28"></i> +
+                                    </label>
+                                </div>
+                                <div _ngcontent-c3="" class="form-check form-check-radio">
+                                    <label _ngcontent-c3="" class="form-check-label" style="color: coral;">
+                                        <input _ngcontent-c3="" class="form-check-input" id="exampleRadios1" name="exampleRadios" type="radio" value="option1">
+                                        <span _ngcontent-c3="" class="form-check-sign"></span><i class="now-ui-icons ui-2_favourite-28"></i>&nbsp;<i class="now-ui-icons ui-2_favourite-28"></i>&nbsp;<i class="now-ui-icons ui-2_favourite-28"></i>&nbsp;<i class="now-ui-icons ui-2_favourite-28"></i> +
+                                    </label>
+                                </div>
+                                <div _ngcontent-c3="" class="form-check form-check-radio">
+                                    <label _ngcontent-c3="" class="form-check-label" style="color: coral;">
+                                        <input _ngcontent-c3="" class="form-check-input" id="exampleRadios1" name="exampleRadios" type="radio" value="option1">
+                                        <span _ngcontent-c3="" class="form-check-sign"></span><i class="now-ui-icons ui-2_favourite-28"></i>&nbsp;<i class="now-ui-icons ui-2_favourite-28"></i>&nbsp;<i class="now-ui-icons ui-2_favourite-28"></i> +
+                                    </label>
+                                </div>
+                                <div _ngcontent-c3="" class="form-check form-check-radio">
+                                    <label _ngcontent-c3="" class="form-check-label" style="color: coral;">
+                                        <input _ngcontent-c3="" class="form-check-input" id="exampleRadios1" name="exampleRadios" type="radio" value="option1">
+                                        <span _ngcontent-c3="" class="form-check-sign"></span>Qualquer Classificação
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="container">
+                            <h4><b>País</b></h4>
+                            <div class="row">
+                                <a href="javascript:void(0)" class="tipovinho" *ngFor="let vinho of PaisVinhos" id="{{vinho}}" (click)="changeFiltroPais(vinho)">{{vinho}}</a>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="container">
+                            <h4><b>Harmonização</b></h4>
+                            <div class="row">
+                                <a class="tipovinho" *ngFor="let vinho of HarmonizacaoVinhos">{{vinho}}</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6" id="geral" style="display: block;">
+                    <div *ngFor="let vinho of Vinhos" class="card">
+                        <img class="card-img-top img" src="assets/img/{{vinho.img}}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{vinho.nome}}</h5>
+                            <p class="card-text">Vínicola: {{vinho.vinicola}}</p>
+                            <p class="card-text">País: {{vinho.pais}}</p>
+                            <p class="card-text">Tipo: {{vinho.tipo_vinho}}</p>
+                            <p class="card-text">Uva: {{vinho.tipo_uva}}</p>
+                            <p class="card-text">Harmonização: {{vinho.harmonizacao}}</p>
+                            <p class="card-text">Avaliação: 5 estrelas</p>
+                            <a class="btn btn-primary"> Reviews</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6" id="filtrotipo" style="display: none;">
+                    <!-- <div *ngFor="let vinho of FiltroTipo" class="card">
+                        <img class="card-img-top img" src="assets/img/{{vinho.img}}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{vinho.nome}}</h5>
+                            <p class="card-text">Vínicola: {{vinho.vinicola}}</p>
+                            <p class="card-text">País: {{vinho.pais}}</p>
+                            <p class="card-text">Tipo: {{vinho.tipo_vinho}}</p>
+                            <p class="card-text">Uva: {{vinho.tipo_uva}}</p>
+                            <p class="card-text">Harmonização: {{vinho.harmonizacao}}</p>
+                            <p class="card-text">Avaliação: 5 estrelas</p>
+                            <a class="btn btn-primary"> Reviews</a>
+                        </div>
+                    </div> -->
+                </div>
+
+                <div class="col-md-6" id="filtropais" style="display: none;">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
