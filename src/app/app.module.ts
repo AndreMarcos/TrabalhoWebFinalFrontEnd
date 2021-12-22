@@ -13,7 +13,6 @@ import { LoginComponent } from './componentes/login/login.component';
 import { CriarcontaComponent } from './componentes/criarconta/criarconta.component';
 import { LandingComponent } from './componentes/landing/landing.component';
 
-
 import { HttpClientModule } from '@angular/common/http';
 import { NavbarlogadoComponent } from './componenetes/navbarlogado/navbarlogado.component';
 import { IndexLogadoComponent } from './index-logado/index-logado.component';

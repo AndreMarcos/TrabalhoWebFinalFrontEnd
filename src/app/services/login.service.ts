@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { environment } from '../../environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
+import { environment } from '../../environments/environment';
 declare var $:any;
 
 @Injectable({
@@ -9,6 +9,7 @@ declare var $:any;
 })
 export class LoginService {
   Url = '/user'
+
   constructor(private http: HttpClient) { }
 
   getListUsers(){
@@ -20,14 +21,27 @@ export class LoginService {
   }
 
   setCadastro(email, nome, senha){
-    const body = {
+    // const headers = { 'content-type': 'application/json'}
+    let user = {
       "nome" : nome,
       "email" : email,
       "senha" : senha
      }
-    console.log(body)
-    const headers = { 'content-type': 'application/json'}  
-    return this.http.post(this.Url + this.Url, body, {'headers':headers})
+    // const body = JSON.stringify(user)
+    // console.log(body)
+    // return this.http.post(environment.url + this.Url, body, {'headers':headers})
+    $.ajax({
+      type: "POST",
+      dataType: "json",
+      // contentType: 'application/json',
+      url: environment.url + this.Url,
+      data: JSON.stringify(user),
+      processData: false,
+      contentType: "application/json; charset=UTF-8",
+      success: function() {
+        console.log("Cadastrado")
+      }
+    })
 
     // $.ajax({
     //   type: "POST",

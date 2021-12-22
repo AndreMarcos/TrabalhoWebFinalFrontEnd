@@ -4,20 +4,40 @@
     <div class="section text-center">
         <br><br>
         <div class="container">
-            <button (click)="mostraCadsatro()" class="btn btn-primary btn-round" type="button">
-                <i _ngcontent-c3="" class="now-ui-icons ui-2_favourite-28"></i> Cadastrar Vinho 
-            </button>
+            <div class="input-group form-group-no-border input-lg">
+                <input type="file" accept="image/png, image/jpeg" id="file-upload" class="form-control" #img/>
+            </div>
+            <div class="input-group form-group-no-border input-lg">
+                <input type="text" class="form-control" placeholder="Nome do Vinho" id="nome" #nome/>
+            </div>
+            <div class="input-group form-group-no-border input-lg" >
+                <input type="text" class="form-control" placeholder="Vinícola" #vinicola/>
+            </div>
+            <div class="input-group form-group-no-border input-lg">
+                <input type="text" class="form-control" placeholder="País" #pais/>
+            </div>
+            <div class="input-group form-group-no-border input-lg" >
+                <input type="text" class="form-control" placeholder="Tipo de Vinho" #tipovinho/>
+            </div>
+            <div class="input-group form-group-no-border input-lg">
+                <input type="text" class="form-control" placeholder="Tipo de Uva" #tipouva/>
+            </div>
+            <div class="input-group form-group-no-border input-lg" >
+                <input type="text" class="form-control" placeholder="Harmonização" #harmonizacao/>
+            </div>
+            <button class="tipovinho" (click)="cadastroVinho(img, nome.value, vinicola.value, pais.value, tipovinho.value, tipouva.value, harmonizacao.value)">Cadastrar Vinho</button>
         </div>
-
         <br><br><br>
         <div class="container">
-            <div *ngFor="let vinho of Vinhos" class="card">
+            <div *ngFor="let vinho of VinhosUser" class="card">
                 <img class="card-img-top img" src="assets/img/{{vinho.img}}">
                 <div class="card-body">
                     <h5 class="card-title">{{vinho.nome}}</h5>
                     <p class="card-text">{{vinho.vinicola}}</p>
+                    <p class="card-text">{{vinho.tipo_vinho}}</p>
+                    <p class="card-text">{{vinho.tipo_uva}}</p>
                     <p class="card-text">{{vinho.pais}}</p>
-                    <a class="btn btn-primary">Reviews</a>
+                    <p class="card-text">{{vinho.harmonizacao}}</p>
                 </div>
             </div>
         </div>

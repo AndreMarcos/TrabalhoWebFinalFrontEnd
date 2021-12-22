@@ -25,10 +25,10 @@ export class LoginComponent implements OnInit {
     let senhaerror, emailerror
     let listUsers = this.loginService.getListUsers();
     listUsers = listUsers.responseJSON
-    let senhaMD5 = CryptoJS.MD5(senha)
+    // let senhaMD5 = CryptoJS.MD5(senha)
     for(let i = 0; i < listUsers.length; i++){
       if(email == listUsers[i].email){
-        if(senhaMD5 == listUsers[i].senha){
+        if(senha == listUsers[i].senha){
           localStorage.setItem('userName', listUsers[i].nome)
           localStorage.setItem('userID', listUsers[i]._id)
           this.ngZone.run(() => {

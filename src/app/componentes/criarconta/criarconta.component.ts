@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, NgZone, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { LoginService } from 'app/services/login.service';
 import * as CryptoJS from "crypto-js";
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-criarconta',
@@ -9,7 +11,7 @@ import * as CryptoJS from "crypto-js";
 })
 export class CriarcontaComponent implements OnInit {
 
-  constructor(public loginService : LoginService) { }
+  constructor(public router : Router, public ngZone : NgZone, public loginService : LoginService) { }
 
   ngOnInit(): void {
     var body = document.getElementsByTagName('body')[0];
@@ -20,8 +22,14 @@ export class CriarcontaComponent implements OnInit {
   }
 
   CriarConta(email, nome, senha){
-    let senhaMD5 = CryptoJS.MD5(senha)
-    console.log(this.loginService.setCadastro(email.value, nome.value, senhaMD5))
+    let senhaerror, emailerror
+    // let senhaMD5 = CryptoJS.MD5(senha)
+    this.loginService.setCadastro(email.value, nome.value, senha);
+    Swal.fire('Uhul','Conta cadastrada com sucesso','success');
+    this.ngZone.run(() => {
+      this.router.navigate(['/login']);
+      emailerror = 0;  
+    })
   }
   
 }
